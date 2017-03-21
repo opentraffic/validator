@@ -1,0 +1,19 @@
+
+version: '2'
+
+services:
+  redis:
+    image: redis:3.2.6
+    ports:
+      - "6379:6379"
+
+  validator:
+    image: validator:latest
+    volumes:
+      - ./jupyter/:/jupyter/
+    ports:
+      - "8888:8888"
+    environment:
+      - REDIS_HOST=redis
+      - STALE_TIME=60
+      - PARTIAL_EXPIRY=300
