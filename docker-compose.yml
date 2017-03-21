@@ -11,6 +11,7 @@ services:
     image: validator:latest
     volumes:
       - ./jupyter/:/jupyter/
+      - /data/:/data/
     ports:
       - "8888:8888"
     environment:
