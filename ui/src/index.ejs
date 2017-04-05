@@ -1,19 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html class="uk-height-1-1">
     <head>
         <meta charset="utf-8">
-        <title>Demo</title>
+        <title>Open Traffic validator </title>
+
     </head>
-    <body>
+    <body class="uk-height-1-1">
+      <div class="uk-height-1-1" uk-grid>
 
-        <div class="uk-container">
-            <div class="uk-card uk-card-body uk-card-primary">
-                <h3 class="uk-card-title">Example headline</h3>
 
-                <button class="uk-button uk-button-default" title="Hello World" uk-tooltip>Hover</button>
+          <div class="uk-height-1-1 uk-width-1-3@m">
+            <div class="uk-card  uk-card-body">
+                <h3 class="uk-card-title">Open Traffic Validator</h3>
+                <form class="uk-form-stacked">
+                  <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-text">Test Run:</label>
+                    <div class="uk-form-controls">
+                      <select class="uk-select" id="select_test"><option value="test">test</option></select>
+                    </div>
+                  </div>
+                  <div class="uk-margin" id="select_trace_form">
+                    <label class="uk-form-label" for="form-stacked-text">Vehicle Trace (<span id="match_count"></span>):</label>
+                    <div class="uk-form-controls">
+                      <select class="uk-select" id="select_trace"></select>
+                    </div>
+                  </div>
+
+                </form>
+
+
+                <span id="debug_out">test</span>
+
             </div>
-        </div>
-
-        <script src="dist/bundle.js"></script>
+          </div>
+          <div class="uk-width-expand@m" id="mapContainer"></div>
+      </div>
     </body>
 </html>

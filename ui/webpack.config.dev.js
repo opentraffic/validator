@@ -5,7 +5,14 @@ import path from 'path';
 
 export default {
   resolve: {
-    extensions: ['*', '.js', '.json']
+    extensions: ['*', '.js', '.json'],
+    alias: {
+          test_data: "/data/manila/quezon_stats.json",
+          leaflet_css: __dirname + "/node_modules/leaflet/dist/leaflet.css",
+          leaflet_marker: __dirname + "/node_modules/leaflet/dist/images/marker-icon.png",
+          leaflet_marker_2x: __dirname + "/node_modules/leaflet/dist/images/marker-icon-2x.png",
+          leaflet_marker_shadow: __dirname + "/node_modules/leaflet/dist/images/marker-shadow.png"
+      }
   },
   devtool: 'eval-source-map', // more info:https://webpack.github.io/docs/build-performance.html#sourcemaps and https://webpack.github.io/docs/configuration.html#devtool
   entry: [
