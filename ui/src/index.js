@@ -53,11 +53,15 @@ request.done(function( response ) {
 $('#select_trace').change(function(){
 
   var vehicle_id = $('#select_trace option:selected').val();
-  
+
   layerGroup.clearLayers();
-  var layer = validator.getVehicleLayer(vehicle_id);
-  var bounds = layer.getBounds();
-  layer.addTo(layerGroup);
+  var vehicleLayer = validator.getVehicleLayer(vehicle_id);
+  var bounds = vehicleLayer.getBounds();
+  vehicleLayer.addTo(layerGroup);
+
+  var matchLayer = validator.getMatchLayer(vehicle_id);
+  matchLayer.addTo(layerGroup);
+
   leafletMap.fitBounds(bounds);
 
 });

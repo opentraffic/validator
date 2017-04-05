@@ -153,9 +153,25 @@ export default class Validator {
 
   getMatchLayer(vehicle_id) {
 
-    var stats = this.vehicle_stats[vehicle_id]
+    var layer = L.featureGroup();
 
-    return stats.getLayer();
+    var pathStyle = {
+      color: "#0000ff",
+      weight: 5,
+      opacity: 0.75
+    };
+
+
+    for(var match_pos in this.matches[vehicle_id]){
+      for(var segment_pos in this.matches[vehicle_id][match_pos].segments){
+        var segement_id = this.matches[vehicle_id][match_pos].segments[segment_pos].segment_id;
+        var segment_geom = this.geometries[segement_id]
+        L.geoJSON(segment_geom).setStyle(pathStyle).addTo(layer);
+      }
+    }
+
+
+    return layer;
   }
 
   getVehicleStats() {
